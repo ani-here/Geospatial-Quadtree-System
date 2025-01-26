@@ -17,4 +17,4 @@ This project visualizes a **QuadTree** data structure using `p5.js` and integrat
    - Points within the query range are highlighted in green.
    - The nearest neighbor to the mouse pointer is connected with a red line.
   
-## Visit here:  https://quadtree-anirudhans-projects-2fb8930c.vercel.app/
+### Visit here:  https://quadtree-anirudhans-projects-2fb8930c.vercel.app/
