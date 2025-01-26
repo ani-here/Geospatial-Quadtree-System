@@ -53,6 +53,7 @@ class Point {
       this.southwest = new QuadTree(sw, this.capacity);
       this.divided = true;
     }
+    
   
     insert(point) {
   
@@ -101,7 +102,6 @@ class Point {
       return found;
     }
   
-  
     show() {
       stroke(0);
       noFill();
@@ -112,7 +112,6 @@ class Point {
         strokeWeight(2);
         point(p.x, p.y);
       }
-  
       if (this.divided) {
         this.northeast.show();
         this.northwest.show();
@@ -120,10 +119,21 @@ class Point {
         this.southwest.show();
       }
     }
+    findNearestNeighbor(point, radius = Infinity) {
+      let nearest = null;
+      let nearestDist = radius;
   
+      // Search within the Quadtree
+      this.query(new Rectangle(point.x, point.y, radius, radius)).forEach(p => {
+        let d = dist(point.x, point.y, p.x, p.y);
+        if (d < nearestDist) {
+          nearest = p;
+          nearestDist = d;
+        }
+      });
   
-  
-  
-  
+      return nearest;
+    }
   }
+  
   
